@@ -140,20 +140,18 @@ if (typeof(L.CartoDBLayer) === "undefined") {
 
 
     /**
-     * Change infowindow of the features
-     * @params {Boolean | String} New sql or activation for infowindow
+     * Hide the CartoDB layer
      */
-    hide: function(value) {
+    hide: function() {
       this.setOpacity(0);
       this.setInteraction(false);
     },
 
 
     /**
-     * Change infowindow of the features
-     * @params {Boolean | String} New sql or activation for infowindow
+     * Show the CartoDB layer
      */
-    show: function(value) {
+    show: function() {
       this.setOpacity(this.options.opacity);
       this.setInteraction(true);
     },
@@ -184,7 +182,7 @@ if (typeof(L.CartoDBLayer) === "undefined") {
       this._remove();
 
       // Create the new updated one
-      if (!this.options.infowindow) {
+      if (!this.options.featureQuery) {
         this._addSimple();
       } else {
         this._addInteraction();
